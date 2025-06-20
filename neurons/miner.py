@@ -262,6 +262,9 @@ class Miner(BaseMinerNeuron):
 
 # This is the main function, which runs the miner.
 if __name__ == "__main__":
+    # Load environment variables from miner.env
+    load_dotenv(dotenv_path=MINER_ENV_PATH, override=True)
+    
     with Miner() as miner:
         while True:
             bt.logging.info(f"Sportstensor Miner running, committed to leagues: {[league.value for league in miner.league_commitments]}")
